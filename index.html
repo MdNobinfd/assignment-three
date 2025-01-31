@@ -35,26 +35,83 @@
               --font-adlam: ADLaM Display , serif;
               --font-sora: Sora , serif;
             }
+            @keyframes scaleAnimation {
+        0% {
+          transform: translateX(100px);
+          background-color: transparent;
+          border: 5px double #FFDC26;
+        }
+        50% {
+          transform: translateX(0px);
+          background-color: #FFDC26;
+
+        }
+        100% {
+          transform: translateX(100px);
+          background-color: transparent;
+          border: 5px double #FFDC26;
+        }
+      }
+    
+      .custom-bounce {
+        animation: scaleAnimation 3s infinite ease-in-out;
+      }
     </style>
   <!--::--------------------- Basic Style End -------------------------::-->
   </head>
   <body>
     <!--::--------------------- Header Section Start -------------------------::-->
-    <header class="container mx-auto">
-      <section id="hero" class="md:pt-[100px] pt-[31px] pb-[132px] md:pb-[349px] bg-[url('./assets/cat-big.png')] bg-no-repeat bg-contain bg-right-bottom">
+    <header class="">
+      <!--::--------------------- Nav Section Start -------------------------::-->
+      <nav class="py-[28px] xl:px-0 px-4 lg:border-none  border-b-[0.5px] border-black bg-secondarye">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="">
+            <a class="flex items-center gap-x-3" href="#">
+                  <img class="w-[47px]" src="assets/logo-header.png" alt="">
+                  <h3 class="font-sora lg:block hidden font-normal text-black text-[26px]">Browse <span class="text-[#FFDC26]">4</span>Pets</h3>
+              </a>
+          </div>
+          <div class="lg:block hidden"> 
+            <ul class="flex items-center gap-x-8 ">
+              <li><a class="font-sora font-normal text-xl" href="#">Find a pet</a></li>
+              <li><a class="font-sora font-normal text-xl" href="#">Breeds</a></li>
+              <li><a class="font-sora font-normal text-xl" href="#">Contact us</a></li>
+            </ul>
+          </div>
+          <div class="lg:block hidden">
+            <div class="flex items-center gap-x-4 ">
+              <a href="">
+                <img src="assets/bell.png" alt="bell">
+              </a>
+              <a href="">
+                <img src="assets/search.png" alt="search">
+              </a>
+              <button class="py-[10px] px-[30px] border border-[#FFDC26] bg-transparent rounded-lg font-sora font-medium text-xl hover:bg-[#FFDC26] duration-300">Login</button>
+              <button class="py-[10px] px-[30px] bg-[#FFDC26] rounded-lg font-sora font-medium text-xl border hover:border-[#FFDC26] hover:bg-transparent duration-300">Register</button>
+            </div>
+          </div>
+          <div class="lg:hidden block">
+            <i class="fa-solid fa-bars text-4xl"></i>
+          </div>
+        </div>
+      </nav>
+      <!--::--------------------- Nav Section End -------------------------::-->
+      <!--::--------------------- Hero Section Start -------------------------::-->
+      <section id="hero" class="md:pt-[100px] container mx-auto pt-[31px] pb-[132px] md:pb-[349px] bg-[url('./assets/cat-big.png')] bg-no-repeat bg-contain bg-right-bottom">
         <div class="xl:px-0 px-4">
           <h1 class="font-adlam font-normal text-[30px] md:text-[56px]">Pamper Your Pet, <br> Because They Deserve <br> the Bes</h1>
           <p class="font-sora font-normal text-base md:text-xl pt-4 pb-6  ">Discover a world of treats, toys, and essentials handpicked for <br> your furry friends. Shop now and make tails wag with joy!</p>
-          <button class="py-[10px] px-[30px] bg-[#FFDC26] rounded-lg font-sora font-medium text-xl hover:bg-white duration-300">Find a pet</button>
+          <button class="py-[10px] px-[30px] custom-bounce bg-[#FFDC26] rounded-lg font-sora font-medium text-xl hover:bg-white duration-300">Find a pet</button>
         </div>
       </section>
+      <!--::--------------------- Hero Section End -------------------------::-->
     </header>
     <!--::--------------------- Header Section End -------------------------::-->
     <!--::--------------------- Main Section Start -------------------------::-->
     <main>
       <!--::--------------------- Categories Section Start -------------------------::-->
       <section class="container mx-auto mt-[55px] md:my-[140px] xl:px-0 px-4">
-        <h2 class="font-adlam font-normal text-4xl pb-[48px]">Browse By Categories</h2>
+        <h2 class="font-adlam font-normal text-2xl md:text-4xl pb-[48px]">Browse By Categories</h2>
         <div class="grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-6">
           <div class="bg-primarye rounded-xl py-[34px] px-[48px] text-center">
             <div class="sm:w-[104px] w-[60px] h-[60px] sm:h-[104px] rounded-full mx-auto bg-white flex
@@ -98,7 +155,7 @@
       <!--::--------------------- Products Section Start -------------------------::-->
       <section class="md:bg-secondarye pt-[55px] md:py-[140px] xl:px-0 px-4">
         <div class="container mx-auto">
-          <h2 class="font-adlam font-normal text-4xl pb-[48px]">Trending Pet Products</h2>
+          <h2 class="font-adlam font-normal text-2xl md:text-4xl pb-[48px]">Trending Pet Products</h2>
           <div class="lg:grid  grid-cols-5 gap-6  ">
             <div class="bg-primarye bg-[url(./assets/cute-pet-small.png)] bg-no-repeat bg-right-bottom  col-span-2 lg:mb-0 mb-6 rounded-[10px]">
               <div class="pl-[32px] pt-[51px] pb-[190px]">
@@ -242,38 +299,40 @@
     </main>
     <!--::--------------------- Main Section End -------------------------::-->
     <!--::--------------------- Footer Section Start -------------------------::-->
-    <footer class="bg-[#ffed91] pt-[300px] pb-[56px] md:pb-[120px]">
-      <footer class="footer container mx-auto items-end  text-base-content p-10">
+    <footer class="bg-[#ffed91]  pt-[300px] pb-[56px] md:pb-[120px]">
+      <div class="footer container xl:px-0 px-4 mx-auto items-end  text-base-content p-10">
         <nav>
-          <div class="flex items-center">
-            <img src="assets/logo-footer.png" alt="">
-            <h3 class="font-sora font-normal text-black text-[26px]">Browse4Pets</h3>
-          </div>
-          <p class="font-sora font-normal text-[#111111c4] text-xl">Discover a world of treats, toys, and <br> essentials handpicked for your furry <br> friends </p>
+          <a href="#">
+          <div class="flex items-center gap-x-3">
+              <img class="w-[47px]" src="assets/logo-footer.png" alt="">
+              <h3 class="font-sora font-normal text-black text-[26px]">Browse <span class="text-[#FFDC26]">4</span>Pets</h3>
+            </div>
+          </a>
+          <p class="font-sora font-normal text-[#111111c4] pt-6                                    text-xl">Discover a world of treats, toys, and <br> essentials handpicked for your furry <br> friends </p>
         </nav>
         <nav>
-          <h6 class=" font-sora font-normal text-xl">Find a pet</h6>
+          <a class="link link-hover font-sora font-normal text-black text-xl">Find a pet</a>
           <a class="link link-hover font-sora font-normal text-black text-xl">Breeds</a>
           <a class="link link-hover font-sora font-normal text-black text-xl">Contact us</a>
         </nav>
         <nav class="lg:ml-auto">
-          <h6 class=" font-sora font-normal text-black text-base ">Follow Us</h6>
+          <a class="link link-hover font-sora font-normal text-black text-xl">Follow Us</a>
           <div class="grid grid-flow-col gap-4">
-            <a>
+            <a href="#">
               <i class="fa-brands fa-facebook text-2xl"></i>
             </a>
-            <a>
+            <a href="#">
               <i class="fa-brands fa-square-instagram text-2xl"></i>
             </a>
-            <a>
+            <a href="#">
               <i class="fa-brands fa-linkedin text-2xl"></i>
             </a>
-            <a>
+            <a href="#">
               <i class="fa-brands fa-youtube text-2xl"></i>
             </a>
           </div>
         </nav>
-      </footer>
+      </div>
     </footer>
     <!--::--------------------- Footer Section End -------------------------::-->
   </body>
